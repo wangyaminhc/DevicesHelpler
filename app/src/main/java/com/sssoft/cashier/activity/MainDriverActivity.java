@@ -46,7 +46,17 @@ public class MainDriverActivity extends AppCompatActivity {
         print.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                new DevicesUtil(MainDriverActivity.this).startPrint(printStr, new DevicesUtil.OnDevicesResult() {
+                    @Override
+                    public void onSuccess(String result) {
+                        Log.e("ScanResult", result);
+                    }
 
+                    @Override
+                    public void onFailed(String code, String reason) {
+                        Log.e("ScanResult", reason);
+                    }
+                });
             }
         });
 

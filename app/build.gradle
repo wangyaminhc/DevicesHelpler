@@ -22,17 +22,6 @@ android {
         flavorDimensions "versionCode"
     }
 
-
-
-    productFlavors {
-        //总行版本
-        appCN {
-            applicationId "com.sssoft.cloudpos.boc"
-            //manifestPlaceholders = [str:"defaultStr",package_name:"com.sssoft.mchser2"]
-        }
-
-
-    }
     aaptOptions {
         cruncherEnabled false
     }
@@ -45,13 +34,6 @@ android {
         lintOptions {
             checkReleaseBuilds false
             abortOnError false
-        }
-    }
-
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            outputFileName = "${variant.productFlavors[0].applicationId}_BOC_${defaultConfig.versionName}_Build${releaseTime()}.apk"
-
         }
     }
 
