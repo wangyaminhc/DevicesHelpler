@@ -1,5 +1,6 @@
 package com.sssoft.cashier.activity;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +11,7 @@ import com.sssoft.base.devices.DevicesUtil;
 import com.sssoft.base.devices.bean.ScanTypeEnum;
 import com.sssoft.cloudpos.R;
 
-public class MainDriverActivity extends AppCompatActivity {
+public class MainDriverActivity extends Activity {
 
     private Button scan;
     private Button print;
