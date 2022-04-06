@@ -1,0 +1,134 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .amateras
+* .fatjar
+* MANIFEST.MF
+* ic_launcher-web.png
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:21.+
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => cashier_drivers_lib\src\main\AndroidManifest.xml
+* assets\ => cashier_drivers_lib\src\main\assets
+* libs\8583package.jar => cashier_drivers_lib\libs\8583package.jar
+* libs\aidlSDK.jar => cashier_drivers_lib\libs\aidlSDK.jar
+* libs\armeabi\libDDIApi.so => cashier_drivers_lib\src\main\jniLibs\armeabi\libDDIApi.so
+* libs\armeabi\libemvjni.so => cashier_drivers_lib\src\main\jniLibs\armeabi\libemvjni.so
+* libs\armeabi\libeptand_jni.so => cashier_drivers_lib\src\main\jniLibs\armeabi\libeptand_jni.so
+* libs\armeabi\libintelligentLib.so => cashier_drivers_lib\src\main\jniLibs\armeabi\libintelligentLib.so
+* libs\armeabi\libjniICServer.so => cashier_drivers_lib\src\main\jniLibs\armeabi\libjniICServer.so
+* libs\armeabi\libndkapi.so => cashier_drivers_lib\src\main\jniLibs\armeabi\libndkapi.so
+* libs\armeabi\libndkapism.so => cashier_drivers_lib\src\main\jniLibs\armeabi\libndkapism.so
+* libs\armeabi\libS500Protocol.so => cashier_drivers_lib\src\main\jniLibs\armeabi\libS500Protocol.so
+* libs\armeabi\libuatr.so => cashier_drivers_lib\src\main\jniLibs\armeabi\libuatr.so
+* libs\armeabiS500\libDDIApi.so => cashier_drivers_lib\src\main\jniLibs\armeabiS500\libDDIApi.so
+* libs\armeabiS500\libS500Protocol.so => cashier_drivers_lib\src\main\jniLibs\armeabiS500\libS500Protocol.so
+* libs\armeabiS500\libuatr.so => cashier_drivers_lib\src\main\jniLibs\armeabiS500\libuatr.so
+* libs\commons-lang-2.4.jar => cashier_drivers_lib\libs\commons-lang-2.4.jar
+* libs\commons-net-3.3.jar => cashier_drivers_lib\libs\commons-net-3.3.jar
+* libs\core-2.3.0.jar => cashier_drivers_lib\libs\core-2.3.0.jar
+* libs\ddiapi.jar => cashier_drivers_lib\libs\ddiapi.jar
+* libs\eptapilibrary-2.0.2d.jar => cashier_drivers_lib\libs\eptapilibrary-2.0.2d.jar
+* libs\fastjson-1.2.2.jar => cashier_drivers_lib\libs\fastjson-1.2.2.jar
+* libs\HI98SDK-1.jar => cashier_drivers_lib\libs\HI98SDK-1.jar
+* libs\iccard.jar => cashier_drivers_lib\libs\iccard.jar
+* libs\industryic.jar => cashier_drivers_lib\libs\industryic.jar
+* libs\meSdk-3.3.0-SNAPSHOT.jar => cashier_drivers_lib\libs\meSdk-3.3.0-SNAPSHOT.jar
+* libs\njabc.jar => cashier_drivers_lib\libs\njabc.jar
+* libs\pinpad.jar => cashier_drivers_lib\libs\pinpad.jar
+* libs\ScanDecoder_v1.2.1.0108.jar => cashier_drivers_lib\libs\ScanDecoder_v1.2.1.0108.jar
+* libs\sdkutils-3.3.0-SNAPSHOT.jar => cashier_drivers_lib\libs\sdkutils-3.3.0-SNAPSHOT.jar
+* libs\simplecaptcha-1.0.jar => cashier_drivers_lib\libs\simplecaptcha-1.0.jar
+* libs\ss-pack1.0.6.jar => cashier_drivers_lib\libs\ss-pack1.0.6.jar
+* libs\struts2-scope-plugin-1.2.6.jar => cashier_drivers_lib\libs\struts2-scope-plugin-1.2.6.jar
+* libs\usdk_api_aidl_v2.0.4.20180518.jar => cashier_drivers_lib\libs\usdk_api_aidl_v2.0.4.20180518.jar
+* lint.xml => cashier_drivers_lib\lint.xml
+* res\ => cashier_drivers_lib\src\main\res\
+* src\ => cashier_drivers_lib\src\main\java\
+* src\com\sssoft\drivers\pos\aidl\AllCard.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\AllCard.aidl
+* src\com\sssoft\drivers\pos\aidl\AllCardListener.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\AllCardListener.aidl
+* src\com\sssoft\drivers\pos\aidl\Card.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\Card.aidl
+* src\com\sssoft\drivers\pos\aidl\CardListener.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\CardListener.aidl
+* src\com\sssoft\drivers\pos\aidl\InsertCard.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\InsertCard.aidl
+* src\com\sssoft\drivers\pos\aidl\InsertCardListener.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\InsertCardListener.aidl
+* src\com\sssoft\drivers\pos\aidl\Printer.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\Printer.aidl
+* src\com\sssoft\drivers\pos\aidl\PrinterListener.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\PrinterListener.aidl
+* src\com\sssoft\drivers\pos\aidl\Scanner.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\Scanner.aidl
+* src\com\sssoft\drivers\pos\aidl\ScannerListener.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\ScannerListener.aidl
+* src\com\sssoft\drivers\pos\aidl\XposDriverInc.aidl => cashier_drivers_lib\src\main\aidl\com\sssoft\drivers\pos\aidl\XposDriverInc.aidl
+* src\com\zacloud\deviceservice\aidl\CandidateAppInfo.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\CandidateAppInfo.aidl
+* src\com\zacloud\deviceservice\aidl\CheckCardListener.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\CheckCardListener.aidl
+* src\com\zacloud\deviceservice\aidl\IBeeper.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IBeeper.aidl
+* src\com\zacloud\deviceservice\aidl\IDeviceInfo.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IDeviceInfo.aidl
+* src\com\zacloud\deviceservice\aidl\IDeviceService.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IDeviceService.aidl
+* src\com\zacloud\deviceservice\aidl\IInsertCardReader.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IInsertCardReader.aidl
+* src\com\zacloud\deviceservice\aidl\ILed.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\ILed.aidl
+* src\com\zacloud\deviceservice\aidl\IMagCardReader.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IMagCardReader.aidl
+* src\com\zacloud\deviceservice\aidl\IPBOC.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IPBOC.aidl
+* src\com\zacloud\deviceservice\aidl\IPinpad.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IPinpad.aidl
+* src\com\zacloud\deviceservice\aidl\IPrinter.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IPrinter.aidl
+* src\com\zacloud\deviceservice\aidl\IRFCardReader.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IRFCardReader.aidl
+* src\com\zacloud\deviceservice\aidl\IScanner.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\IScanner.aidl
+* src\com\zacloud\deviceservice\aidl\ISerialPort.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\ISerialPort.aidl
+* src\com\zacloud\deviceservice\aidl\MagCardListener.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\MagCardListener.aidl
+* src\com\zacloud\deviceservice\aidl\OnlineResultHandler.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\OnlineResultHandler.aidl
+* src\com\zacloud\deviceservice\aidl\PBOCHandler.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\PBOCHandler.aidl
+* src\com\zacloud\deviceservice\aidl\PinInputListener.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\PinInputListener.aidl
+* src\com\zacloud\deviceservice\aidl\PrinterListener.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\PrinterListener.aidl
+* src\com\zacloud\deviceservice\aidl\ReadCardListener.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\ReadCardListener.aidl
+* src\com\zacloud\deviceservice\aidl\RFSearchListener.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\RFSearchListener.aidl
+* src\com\zacloud\deviceservice\aidl\ScannerListener.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\ScannerListener.aidl
+* src\com\zacloud\deviceservice\aidl\TusnData.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\TusnData.aidl
+* src\com\zacloud\deviceservice\aidl\UPCardListener.aidl => cashier_drivers_lib\src\main\aidl\com\zacloud\deviceservice\aidl\UPCardListener.aidl
+* zxbeep.WAV => zxbeep.wav
+
+Missing Android Support Repository:
+-----------------------------------
+Some useful libraries, such as the Android Support Library, are
+installed from a special Maven repository, which should be installed
+via the SDK manager.
+
+It looks like this library is missing from your SDK installation at:
+null
+
+To install it, open the SDK manager, and in the Extras category,
+select "Android Support Repository". You may also want to install the
+"Google Repository" if you want to use libraries like Google Play
+Services.
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

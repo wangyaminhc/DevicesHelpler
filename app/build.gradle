@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+def releaseTime() {
+    return new Date().format("yyyyMMdd_HHmmss", TimeZone.getTimeZone("GMT+8:00"))
+}
+
+/*def ReleaseVersion() {
+    return true; // 投产版本
+    //return false; // 测试版本
+}*/
+
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        applicationId "com.sssoft.cloudpos"
+        minSdkVersion 16
+        targetSdkVersion 26
+        multiDexEnabled true
+        flavorDimensions "versionCode"
+    }
+
+
+
+    productFlavors {
+        //总行版本
+        appCN {
+            applicationId "com.sssoft.cloudpos.boc"
+            //manifestPlaceholders = [str:"defaultStr",package_name:"com.sssoft.mchser2"]
+        }
+
+
+    }
+    aaptOptions {
+        cruncherEnabled false
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        incremental true
+        jumboMode true
+    }
+    buildTypes {
+        lintOptions {
+            checkReleaseBuilds false
+            abortOnError false
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${variant.productFlavors[0].applicationId}_BOC_${defaultConfig.versionName}_Build${releaseTime()}.apk"
+
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation 'com.android.support:support-v4:26+'
+    implementation project(':base')
+    implementation 'com.android.support:appcompat-v7:26.+'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+}
