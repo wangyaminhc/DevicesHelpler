@@ -6,10 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.sssoft.cloudpos"
-        minSdkVersion 16
-        targetSdkVersion 26
-        multiDexEnabled true
-        flavorDimensions "versionCode"
+        minSdk  21
+        targetSdkVersion 30
     }
 
     aaptOptions {
