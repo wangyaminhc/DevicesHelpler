@@ -1,15 +1,5 @@
 apply plugin: 'com.android.application'
 
-def releaseTime() {
-    return new Date().format("yyyyMMdd_HHmmss", TimeZone.getTimeZone("GMT+8:00"))
-}
-
-/*def ReleaseVersion() {
-    return true; // 投产版本
-    //return false; // 测试版本
-}*/
-
-
 android {
     compileSdkVersion 26
     buildToolsVersion '27.0.3'
@@ -25,21 +15,24 @@ android {
     aaptOptions {
         cruncherEnabled false
     }
-    dexOptions {
-        javaMaxHeapSize "4g"
-        incremental true
-        jumboMode true
-    }
+
+
     buildTypes {
-        lintOptions {
-            checkReleaseBuilds false
-            abortOnError false
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    repositories {
+        flatDir {
+            dirs 'libs' //this way we can find the .aar file in libs folder
+        }
     }
 
 }
