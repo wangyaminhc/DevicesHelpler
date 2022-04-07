@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.google.code.gson:gson:2.8.0'
 }
 
@@ -49,7 +49,7 @@ afterEvaluate {
                 //建议和github仓库名称对应，否则对jitpack无效
                 artifactId = 'DevicesHelpler'
                 //建议和release的tag相同，否则对jitpack无效
-                version = '1.0.8'
+                version = '1.0.9'
             }
         }
     }
