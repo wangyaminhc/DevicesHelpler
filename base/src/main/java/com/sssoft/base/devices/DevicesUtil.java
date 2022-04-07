@@ -290,10 +290,13 @@ public  class DevicesUtil {
 
 
     /**
-     *@author wangyamin
-     *@time 创建时间 2020/2/23 13:37
-     * @Description 扫码操作
-     *
+     *  通过用户传入的Handler来传出扫码结果
+     *   public static final int SUCCESS = 10;
+     *   public static final int ERROR = 11;
+     *   public static final int FINISH = 12;
+     *   public static final int EXCEPTION = 13;
+     *  @author wangyamin
+     *  @time 创建时间 2020/2/23 13:37
      */
     public void startScan(ScanTypeEnum type, Handler handlerScan){
         //检查设备初始化情况

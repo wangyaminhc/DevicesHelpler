@@ -23,7 +23,6 @@ public class MainDriverActivity extends Activity {
         setContentView(R.layout.activity_main_driver);
         scan = findViewById(R.id.scan);
         print = findViewById(R.id.print);
-
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

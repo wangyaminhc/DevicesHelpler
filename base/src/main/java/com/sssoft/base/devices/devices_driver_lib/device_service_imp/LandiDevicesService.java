@@ -16,7 +16,7 @@ public class LandiDevicesService implements BankServiceInterface {
 
     private Context mContext;
     private final IDeviceBindListener listener;
-    public LandiDevicesService(Context mContexti,IDeviceBindListener listener) {
+    public LandiDevicesService(Context mContext,IDeviceBindListener listener) {
         this.listener = listener;
        this.mContext = mContext;
        bindService();

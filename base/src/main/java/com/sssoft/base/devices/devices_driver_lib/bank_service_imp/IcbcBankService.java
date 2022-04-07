@@ -52,8 +52,9 @@ public class IcbcBankService implements BankServiceInterface {
         @Override
         public void binderDied() {
             Log.e("Devices","binderDied");
-            if(deviceService == null)
+            if(deviceService == null){
                 return;
+            }
             deviceService.asBinder().unlinkToDeath(deathRecipient,0);
             deviceService = null;
             icbcDevicesManager = null;
