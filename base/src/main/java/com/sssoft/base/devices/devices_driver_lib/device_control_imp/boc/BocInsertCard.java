@@ -33,7 +33,7 @@ public class BocInsertCard implements Card {
             @Override
             public void run() {
                 try {
-                    iCardReader.openCardReader(Const.OpenCardType.IC_CARD,
+                    iCardReader.openCardReader(Const.OpenCardType.ICCard,
                             false,
                             false,
                             mTimeout * 1000,

@@ -1,6 +1,9 @@
 package com.sssoft.base.devices.devices_driver_lib.device_control_imp.boc;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -9,6 +12,8 @@ import android.util.Log;
 import com.boc.aidl.printer.AidlPrinter;
 import com.boc.aidl.printer.AidlPrinterListener;
 import com.google.gson.Gson;
+import com.loong.base.R;
+import com.sssoft.base.devices.DevicesUtil;
 import com.sssoft.base.devices.devices_driver_lib.interfaces.callback_interface.PrinterListener;
 import com.sssoft.base.devices.devices_driver_lib.interfaces.device_control_interface.IPrinter;
 
@@ -17,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.sssoft.base.devices.bean.ConstantBean.ALIGN;
+import static com.sssoft.base.devices.bean.ConstantBean.ALIGN_CENTER;
 import static com.sssoft.base.devices.bean.ConstantBean.ALIGN_LEFT;
 import static com.sssoft.base.devices.bean.ConstantBean.FONT;
 import static com.sssoft.base.devices.bean.ConstantBean.FONT_MAP;
@@ -30,6 +36,7 @@ public class BocPrinter implements IPrinter {
     private List<PrintContentBean.SposBean> printLists = new ArrayList<>();
     public static final int QR_SIZE = 150;
     public static final int QR_SIZE_STEP = 50;
+    private Context mContext;
 
 
     private static final String TEXT_TYPE = "txt";
@@ -37,9 +44,39 @@ public class BocPrinter implements IPrinter {
     private static final String BAR_CODE = "one-dimension";
     private static final String QR_CODE = "two-dimension";
 
-    public BocPrinter(IBinder binder) {
+    public BocPrinter(IBinder binder, Context context) {
         iPrinter = AidlPrinter.Stub.asInterface(binder);
+        mContext = context;
     }
+    String bill="{'spos':[{'content-type':'txt','content':'\n\n','position':'left','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'签购单','position':'center','bold':'0','height':'-1','size':'3'},"
+            + "{'content_type':'jpg','content':'','position':'center','bold':'0','height':'-1','size':'1'},"
+            + "{'content-type':'txt','content':'------------------------------------------------','position':'center','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'持卡人存根','position':'right','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'------------------------------------------------','position':'center','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'商户：ZOE集成环境测试商户','position':'left','bold':'0','height':'-1','size':'3'},"
+            + "{'content-type':'txt','content':'    商户编号：812002110030001','position':'left','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'    终端编号：20150909','position':'left','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'    操作员号：001','position':'left','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'------------------------------------------------','position':'center','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'交易：扫一扫支付','position':'left','bold':'0','height':'-1','size':'3'},"
+            + "{'content-type':'txt','content':'    支付渠道：微信支付','position':'left','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'    日期时间：2016\\/04\\/28  15:27:51','position':'left','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'    参考号：000014103147','position':'left','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'one-dimension','content':'000014103147','position':'center','bold':'0','height':'1','size':'3'},"
+            + "{'content-type':'txt','content':'','position':'left','bold':'0','height':'-1','size':'1'},"
+            + "{'content-type':'txt','content':'','position':'left','bold':'0','height':'-1','size':'1'},"
+            + "{'content-type':'txt','content':'金额：RMB  0.01','position':'left','bold':'1','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'------------------------------------------------','position':'center','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'备注：','position':'left','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'','position':'left','bold':'0','height':'-1','size':'1'},"
+            + "{'content-type':'txt','content':'','position':'left','bold':'0','height':'-1','size':'1'},"
+            + "{'content-type':'txt','content':'本人确认以上交易，同意将其计入本卡账户 ','position':'center','bold':'0','height':'-1','size':'1'},"
+            + "{'content-type':'txt','content':'I ACKNOWLEDGE SATISFACTORY RECEIPT OF RELATIVE GOODS\\/SERVICE','position':'center','bold':'0','height':'-1','size':'1'},"
+            + "{'content-type':'txt','content':'------------------------------------------------','position':'center','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'two-dimension','content':'687474703A2F2F7777772E393962696C6C2E636F6D2F617070','position':'center','bold':'0','height':'-1','size':'2'},"
+            + "{'content-type':'txt','content':'\n\n\n\n','position':'center','bold':'0','height':'-1','size':'2'}]}";
+
 
     @Override
     public void addText(Bundle format, String text) throws RemoteException {
@@ -84,15 +121,16 @@ public class BocPrinter implements IPrinter {
         int height = 50;
         String font =FONT_NORMAL;
         if( format != null){
-//            align = format.getString(ALIGN,ALIGN_LEFT);
+            align = format.getString(ALIGN,ALIGN_LEFT);
             height = format.getInt(PRINT_HEIGHT,64);
 //            font = format.getString(FONT,FONT_NORMAL);
         }
         bean.setContenttype(BAR_CODE);
         bean.setSize("2");
         bean.setContent(barCode);
-//        bean.setPosition(align);
-        bean.setHeight(height+"");
+        bean.setPosition(align);
+//        bean.setHeight(height+"");
+//        bean.setHeight("-1");
         printLists.add(bean);
     }
 
@@ -130,7 +168,9 @@ public class BocPrinter implements IPrinter {
         }else{
             Log.e("getBocPrintString","print size:"+printLists.size());
             Log.e("getBocPrintString","print:"+getPrintString());
-            iPrinter.print(getPrintString(), null, new AidlPrinterListener.Stub(){
+//            Resources.getSystem().getDrawable(R.drawable.boclogo);
+            Bitmap[] bitmap = new Bitmap[] { BitmapFactory.decodeResource(mContext.getResources(), R.drawable.boclogo) };
+            iPrinter.print(getPrintString(), bitmap, new AidlPrinterListener.Stub(){
                 @Override
                 public void onError(int i, String s)  {
                     printerListener.onError( i+"",PrintErrorCodeBOC.ERR_MAP.get(i));

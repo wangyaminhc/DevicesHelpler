@@ -1,5 +1,6 @@
 package com.sssoft.base.devices.devices_driver_lib.device_control_imp.boc;
 
+import android.content.Context;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -23,14 +24,20 @@ public class BocDeviceManager implements IDevicesManager {
     RfM1Card rfM1Card = null;
     AllCard allCard = null;
     Scanner scanner = null;
+    Context mContext = null;
 
     public BocDeviceManager(AidlDeviceService deviceBinder) {
         this.deviceBinder = deviceBinder;
     }
+    public BocDeviceManager(AidlDeviceService deviceBinder, Context context) {
+        this.deviceBinder = deviceBinder;
+        mContext = context;
+    }
+
     @Override
     public IPrinter getPrinter() {
         try {
-            printer = new BocPrinter(deviceBinder.getPrinter());
+            printer = new BocPrinter(deviceBinder.getPrinter(), mContext);
         }catch (RemoteException e){
             e.printStackTrace();
         }

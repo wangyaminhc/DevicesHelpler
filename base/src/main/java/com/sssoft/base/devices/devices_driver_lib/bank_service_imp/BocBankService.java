@@ -87,7 +87,7 @@ public class BocBankService implements BankServiceInterface {
     @Override
     public IDevicesManager getIDevicesManager() {
         if(bocDevicesManager == null){
-            bocDevicesManager = new BocDeviceManager(deviceService);
+            bocDevicesManager = new BocDeviceManager(deviceService,mContext);
         }
         return bocDevicesManager;
     }

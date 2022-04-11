@@ -23,12 +23,6 @@ android {
 
     }
 
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -40,19 +34,19 @@ android {
 }
 
 dependencies {
-
-    implementation files('libs/abc_usdk_pay_1.0.3.jar')
-    implementation files('libs/boc_sdkServiceApi_20181105.jar')
-    implementation files('libs/ccb_api_aidl_201908021504.jar')
+    implementation fileTree(dir: 'libs')
+//    implementation files('libs/abc_usdk_pay_1.0.3.jar')
+//    implementation files('libs/boc_sdkServiceApi.jar')
+//    implementation files('libs/ccb_api_aidl_201908021504.jar')
+//    implementation files('libs/meSdk-3.6.5-SNAPSHOT.jar')
     compileOnly    files('libs/core-2.3.0.jar')
-    implementation files('libs/eptapilibrary-2.0.2d.jar')
-    implementation files('libs/icbc_aidlSDK.jar')
+//    implementation files('libs/eptapilibrary-2.0.2d.jar')
+//    implementation files('libs/icbc_aidlSDK.jar')
     compileOnly files('libs/log4j-1.2.17.jar')
-    implementation files('libs/meSdk-3.3.0-SNAPSHOT.jar')
-    implementation files('libs/njabc.jar')
-    implementation files('libs/pinpad.jar')
-    implementation files('libs/ScanDecoder_v1.2.1.0108.jar')
-    implementation files('libs/sdk4upos_20180625_mix.jar')
+//    implementation files('libs/njabc.jar')
+//    implementation files('libs/pinpad.jar')
+//    implementation files('libs/ScanDecoder_v1.2.1.0108.jar')
+//    implementation files('libs/sdk4upos_20180625_mix.jar')
     implementation 'com.google.code.gson:gson:2.8.0'
 }
 
@@ -67,7 +61,7 @@ afterEvaluate {
                 //建议和github仓库名称对应，否则对jitpack无效
                 artifactId = 'DevicesHelpler'
                 //建议和release的tag相同，否则对jitpack无效
-                version = '1.1.2'
+                version = '1.1.4'
             }
         }
     }
